@@ -2,7 +2,8 @@
 
 We aim to replicate the experiments described in the paper ["The continuous Bernoulli: fixing a pervasive error in variational autoencoders"](https://openreview.net/forum?id=HyxViBSgLB) from the NeurIPS 2019 submissions, as part of our participation in the  [Reproducibility Challenge @ NeurIPS 2019](https://reproducibility-challenge.github.io/neurips2019/).
 
-## Table of content
+## Table of contents
+
 - [Description](#description)
 - [Authors](#authors)
 - [Results](#results)
@@ -29,4 +30,5 @@ We replicate the results of the recent paper *The continuous Bernoulli: fixing a
 ## Acknowledgments
 
 ## License
+
 [MIT License](https://github.com/Robert-Alonso/Continuous-Bernoulli-VAE/blob/master/LICENSE)
