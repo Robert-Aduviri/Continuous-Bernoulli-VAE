@@ -1,7 +1,5 @@
 # Continuous-Bernoulli-VAE
 
-Reproducing the paper "The continuous Bernoulli: fixing a pervasive error in variational autoencoders" for the NeurIPS 2019 Reproducibility Challenge
-
 We aim to replicate the experiments described in the paper ["The continuous Bernoulli: fixing a pervasive error in variational autoencoders"](https://openreview.net/forum?id=HyxViBSgLB) from the NeurIPS 2019 submissions, as part of our participation in the  [NeurIPS Reproducibility Challenge 2019](https://reproducibility-challenge.github.io/neurips2019/).
 
 ## Table of content
