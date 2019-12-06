@@ -54,4 +54,3 @@ class VAE(nn.Module):
         z = self.reparameterize(mu, std)
         # Return decoding, mean and logvar
         return self.decode(z), mu, 2.*torch.log(std) 
-    
