@@ -9,7 +9,6 @@ We aim to replicate the experiments described in the paper ["The continuous Bern
 - [Results](#results)
 - [Usage](#usage)
 - [References](#references)
-- [Acknowledgements](#acknowledgements)
 - [License](#license)
 
 ## Description 
@@ -23,11 +22,39 @@ We replicate the results of the recent paper *The continuous Bernoulli: fixing a
 
 ## Results
 
+**Qualitative constrast between Bernoulli VAE and Continuous Bernoulli VAE**
+<div align="center">
+ <img src="imgs/qualitative_contrast.png" height="400px">
+</div>
+
 ## Usage
 
-## References
+### Setup
 
-## Acknowledgments
+>Requires Python 3.6 or higher.
+
+The following lines will clone the repository and install all the required dependencies.
+
+```
+$ git clone https://github.com/Robert-Alonso/Continuous-Bernoulli-VAE.git
+$ cd Continuous-Bernoulli-VAE
+$ pip install -r requirements.txt
+```
+
+### Pretrained Models
+
+We stored the checkpoints of the trained models in the **trained_models** folder. 
+
+### Train models 
+
+Fill
+
+
+## References
+Papers:
+- **[The continuous Bernoulli: fixing a pervasive error in variational autoencoders](https://arxiv.org/pdf/1907.06845.pdf) (with [Appendix](https://arxiv.org/src/1907.06845v4/anc/cont_bern_aux.pdf))**
+- [An Introduction to Variational Autoencoders](https://arxiv.org/pdf/1906.02691.pdf)
+- [Tutorial on Variational Autoencoders](https://arxiv.org/abs/1606.05908)
 
 ## License
 
