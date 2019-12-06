@@ -35,7 +35,7 @@ def loss_cbvae(recon_x, x, mu, logvar):
     '''
     BCE = F.binary_cross_entropy(recon_x, x.view(-1, 784), reduction='sum')
     KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
-    LOGC = sumlogC(recon_x)
+    LOGC = -sumlogC(recon_x)
     return BCE + KLD + LOGC
 
 class AddNoiseToTensor(object):

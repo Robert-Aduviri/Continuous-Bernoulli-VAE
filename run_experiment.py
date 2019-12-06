@@ -12,9 +12,10 @@ from torchvision.utils import save_image
 from torchvision import datasets, transforms
 
 
-def train( model, optimizer, epoch, 
-           train_loader, loss_function, 
-           device, filename = 'model', log_interval = 1000):
+def train(model, optimizer, epoch, 
+          train_loader, loss_function, 
+          device, filename = 'model', 
+          log_interval = 1000):
     '''
     Training generative model
     '''
@@ -38,7 +39,7 @@ def train( model, optimizer, epoch,
     print('====> Epoch: {} Average loss: {:.4f}'.format(
            epoch, train_loss / len(train_loader.dataset)))
 
-def test( epoch, model, device, directory):
+def test(epoch, model, device, directory):
     '''
     Visually inspect results of trained model
     by sampling from latent space gaussian distribution.
@@ -75,12 +76,12 @@ def main():
                         help = 'Warping constant (default: 0.)')
     
     parser.add_argument('--seed', type = int, default = 512, metavar = 'S',
-                         help ='Random seed (default: 1)')
+                         help ='Random seed (default: 512)')
     
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help ='Disables CUDA training')
     
-    parser.add_argument('--report-interval', type = int, default = 1, metavar = 'REP',
+    parser.add_argument('--report-interval', type = int, default = 10, metavar = 'REP',
                         help ='Epochs to wait before storing trained model')
          
     parser.add_argument('--log-interval', type = int, default = 500, metavar = 'LOG',
