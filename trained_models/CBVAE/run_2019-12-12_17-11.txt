@@ -1,0 +1,11 @@
+Experimental Settings
+batch_size 128
+model CBVAE
+path ../data
+epochs 100
+lr 0.001
+warp 0.0
+seed 512
+no_cuda False
+report_interval 10
+log_interval 500

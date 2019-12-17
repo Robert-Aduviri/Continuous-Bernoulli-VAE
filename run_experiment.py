@@ -48,8 +48,9 @@ def test(epoch, model, device, directory):
     with torch.no_grad():
         
         sample = torch.randn(64, 20).to(device)
-        sample = model.decode(sample).cpu()
-        save_image(sample.view(64, 1, 28, 28),
+        mu, _ = model.decode(sample)
+        mu = mu.cpu()
+        save_image(mu.view(64, 1, 28, 28),
                    directory + '/sample_' + str(epoch) + '.png')
         
 def main():
@@ -57,11 +58,11 @@ def main():
     # Experimental Settings
     parser = argparse.ArgumentParser(description='PyTorch CNP Experiment')
     
-    parser.add_argument('--batch-size', type = int, default = 16, metavar = 'N',
-                        help = 'Input batch size for training (default: 16)')
+    parser.add_argument('--batch-size', type = int, default = 128, metavar = 'N',
+                        help = 'Input batch size for training (default: 128)')
     
     parser.add_argument('--model', default = 'VAE', metavar = 'M',
-                        help = 'Model [VAE, CBVAE] (default: VAE)')
+                        help = 'Model [VAE, CBVAE, GVAE] (default: VAE)')
     
     parser.add_argument('--path', default = '../data', metavar = 'T',
                         help = 'Path to dataset')
@@ -130,12 +131,14 @@ def main():
 
     
     # Choose the model version
-    model = VAE().to(device)
+    model = VAE(args.model).to(device)
     
     if args.model == 'CBVAE':
         loss = loss_cbvae
     elif args.model == 'VAE':
         loss = loss_vae
+    elif args.model == 'GVAE':
+        loss = loss_gvae
     
     # Define optimizer
     optimizer = optim.Adam(model.parameters(), lr = args.lr)

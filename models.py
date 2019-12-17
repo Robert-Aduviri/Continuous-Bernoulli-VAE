@@ -9,7 +9,7 @@ class VAE(nn.Module):
     ## Architectured Based on Appendix by Authors
     ## https://arxiv.org/src/1907.06845v4/anc/cont_bern_aux.pdf
 
-    def __init__(self):
+    def __init__(self, model):
         super(VAE, self).__init__()
         
         # Encoder layers
@@ -28,6 +28,17 @@ class VAE(nn.Module):
         self.dropout2 = nn.Dropout(0.1)
         self.dropout3 = nn.Dropout(0.1)
         self.dropout4 = nn.Dropout(0.1)
+        
+        self.model = model
+        
+        if self.model == 'GVAE':
+            #Add additional layers for gaussian std
+            self.fc6 = nn.Linear(20, 500)
+            self.fc7 = nn.Linear(500, 500)
+            self.fc8 = nn.Linear(500, 784)
+            
+            self.dropout5 = nn.Dropout(0.1)
+            self.dropout6 = nn.Dropout(0.1)
 
     def encode(self, x):
         #Recognition function
@@ -47,7 +58,17 @@ class VAE(nn.Module):
         h3 = self.dropout3(h3)
         h4 = F.relu(self.fc4(h3))
         h4 = self.dropout4(h4)
-        return torch.sigmoid( self.fc5(h4) ) # Gaussian mean
+       
+        sigma = None
+        if self.model == 'GVAE':
+            h5 = F.relu(self.fc6(z))
+            h5 = self.dropout5(h5)
+            h6 = F.relu(self.fc7(h5))
+            h6 = self.dropout6(h6)
+            # Gaussian sigma 
+            sigma = F.softplus(self.fc8(h6))
+
+        return torch.sigmoid(self.fc5(h4)), sigma # Gaussian mean
 
     def forward(self, x):
         mu, std = self.encode(x.view(-1, 784))
