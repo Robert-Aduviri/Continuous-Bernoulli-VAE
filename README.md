@@ -24,7 +24,7 @@ We replicate the results of the recent paper *The continuous Bernoulli: fixing a
 
 **Qualitative constrast between Bernoulli VAE and Continuous Bernoulli VAE**
 <div align="center">
- <img src="imgs/qualitative_contrast.png" height="400px">
+ <img src="imgs/qualitative_constrast.png" height="400px">
 </div>
 
 ## Usage
@@ -55,6 +55,11 @@ Papers:
 - **[The continuous Bernoulli: fixing a pervasive error in variational autoencoders](https://arxiv.org/pdf/1907.06845.pdf) (with [Appendix](https://arxiv.org/src/1907.06845v4/anc/cont_bern_aux.pdf))**
 - [An Introduction to Variational Autoencoders](https://arxiv.org/pdf/1906.02691.pdf)
 - [Tutorial on Variational Autoencoders](https://arxiv.org/abs/1606.05908)
+
+Repositories: 
+- [PyTorch Official VAE Implementation](https://github.com/pytorch/examples/tree/master/vae)
+- [VAE-pytorch](https://github.com/atinghosh/VAE-pytorch)
+- [inception-score-pytorch](https://github.com/sbarratt/inception-score-pytorch)
 
 ## License
 
